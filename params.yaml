@@ -6,13 +6,7 @@ Alocohol dehydrogenation:
             unit: dimensionless
             upper: 3
             value: 2
-        b:
-            initial_value: 10
-            lower: 9
-            unit: mmole / l
-            upper: 11
-            value: 10
-    equation: ethanol * a + b
+    equation: ethanol * a
     reaction: r0
 LoadEnzymeML:
     path: Test.omex
