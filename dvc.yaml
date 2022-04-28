@@ -25,8 +25,3 @@ stages:
         cache: false
     params:
     - ParameterEstimation
-    plots:
-    - nodes/ParameterEstimation/time_course.csv:
-        cache: false
-        x_label: Time
-        y_label: Concentration
