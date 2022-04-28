@@ -11,4 +11,4 @@ Alocohol dehydrogenation:
 LoadEnzymeML:
     path: Test.omex
 ParameterEstimation:
-    thinlayer: pysces
+    thinlayer: copasi
