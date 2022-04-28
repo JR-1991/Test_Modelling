@@ -1,0 +1,22 @@
+{
+    "Alocohol dehydrogenation": {
+        "data": {
+            "_type": "ZnTrackType",
+            "value": {
+                "module": "src.load",
+                "cls": "LoadEnzymeML",
+                "name": "LoadEnzymeML"
+            }
+        }
+    },
+    "ParameterEstimation": {
+        "data": {
+            "_type": "ZnTrackType",
+            "value": {
+                "module": "src.model",
+                "cls": "Model",
+                "name": "Alocohol dehydrogenation"
+            }
+        }
+    }
+}

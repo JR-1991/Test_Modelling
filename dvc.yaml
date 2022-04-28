@@ -1,0 +1,32 @@
+stages:
+  LoadEnzymeML:
+    cmd: "python3 -c \"from src.load import LoadEnzymeML; LoadEnzymeML.load(name='LoadEnzymeML').run_and_save()\"\
+      \ "
+    params:
+    - LoadEnzymeML
+    outs:
+    - nodes/LoadEnzymeML/outs.json
+  Alocohol dehydrogenation:
+    cmd: "python3 -c \"from src.model import Model; Model.load(name='Alocohol dehydrogenation').run_and_save()\"\
+      \ "
+    deps:
+    - nodes/LoadEnzymeML/outs.json
+    params:
+    - Alocohol dehydrogenation
+    outs:
+    - nodes/Alocohol dehydrogenation/outs.json
+  ParameterEstimation:
+    cmd: "python3 -c \"from src.estimation import ParameterEstimation; ParameterEstimation.load(name='ParameterEstimation').run_and_save()\"\
+      \ "
+    deps:
+    - nodes/Alocohol dehydrogenation/outs.json
+    metrics:
+    - nodes/ParameterEstimation/metrics_no_cache.json:
+        cache: false
+    params:
+    - ParameterEstimation
+    plots:
+    - nodes/ParameterEstimation/time_course.csv:
+        cache: false
+        x_label: Time
+        y_label: Concentration

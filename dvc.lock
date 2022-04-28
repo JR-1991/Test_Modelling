@@ -1,0 +1,60 @@
+schema: '2.0'
+stages:
+  LoadEnzymeML:
+    cmd: "python3 -c \"from src.load import LoadEnzymeML; LoadEnzymeML.load(name='LoadEnzymeML').run_and_save()\"\
+      \ "
+    params:
+      params.yaml:
+        LoadEnzymeML:
+          path: Test.omex
+    outs:
+    - path: nodes/LoadEnzymeML/outs.json
+      md5: 1695ba69de346d32c1fe140983c61a44
+      size: 45080
+  Alocohol dehydrogenation:
+    cmd: "python3 -c \"from src.model import Model; Model.load(name='Alocohol dehydrogenation').run_and_save()\"\
+      \ "
+    deps:
+    - path: nodes/LoadEnzymeML/outs.json
+      md5: 1695ba69de346d32c1fe140983c61a44
+      size: 45080
+    params:
+      params.yaml:
+        Alocohol dehydrogenation:
+          config:
+            a:
+              initial_value: 2
+              lower: 1
+              unit: dimensionless
+              upper: 3
+              value: 2
+            b:
+              initial_value: 10
+              lower: 9
+              unit: mmole / l
+              upper: 11
+              value: 10
+          equation: ethanol * a + b
+          reaction: r0
+    outs:
+    - path: nodes/Alocohol dehydrogenation/outs.json
+      md5: fb591d712758f040c74bee9ca739a248
+      size: 55113
+  ParameterEstimation:
+    cmd: "python3 -c \"from src.estimation import ParameterEstimation; ParameterEstimation.load(name='ParameterEstimation').run_and_save()\"\
+      \ "
+    deps:
+    - path: nodes/Alocohol dehydrogenation/outs.json
+      md5: fb591d712758f040c74bee9ca739a248
+      size: 55113
+    params:
+      params.yaml:
+        ParameterEstimation:
+          thinlayer: pysces
+    outs:
+    - path: nodes/ParameterEstimation/metrics_no_cache.json
+      md5: 2741cdbbd7b829df49d4e67ff17e308a
+      size: 98
+    - path: nodes/ParameterEstimation/time_course.csv
+      md5: 419817191074551dd43bc13dcf94a4f7
+      size: 477
