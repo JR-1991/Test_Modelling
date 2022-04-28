@@ -16,9 +16,6 @@ class ParameterEstimation(Node):
     # Metrics
     parameters: dict = zn.metrics()
     
-    # Plots
-    time_course = zn.plots(x_label="Time", y_label="Concentration")
-    
     def run(self):
         """Performs parameter estimation using COPASI"""
         
