@@ -20,7 +20,7 @@ jobs:
           pip install -r requirements.txt
       - name: Run Stage
         run: |
-          dvc repro
+          dvc repro --all-pipelines -f 
       - name: Make PR and CML Publish Results
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
