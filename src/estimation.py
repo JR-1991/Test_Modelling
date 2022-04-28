@@ -43,7 +43,9 @@ class ParameterEstimation(Node):
         
         # Extract parameters to metrics
         self.parameters = {
-            f"{reaction.id}_{parameter.name}": parameter.value
+            reaction.id: {
+                parameter.name: parameter.value
+                for parameter in reaction.model.parameters
+            }
             for reaction in modelled.reaction_dict.values()
-            for parameter in reaction.model.parameters
         }
