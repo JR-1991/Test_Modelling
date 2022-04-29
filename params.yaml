@@ -1,20 +1,20 @@
 Alocohol dehydrogenation:
-    config:
-        a:
-            initial_value: 2
-            lower: 1
-            unit: dimensionless
-            upper: 3
-            value: 2
-        b:
-            initial_value: 10
-            lower: 9
-            unit: mmole / l
-            upper: 11
-            value: 10
-    equation: ethanol * a + b
-    reaction: r0
+  config:
+    a:
+      initial_value: 2
+      lower: 1
+      unit: dimensionless
+      upper: 3
+      value: 2
+    b:
+      initial_value: 2
+      lower: 9
+      unit: mmole / l
+      upper: 11
+      value: 10
+  equation: ethanol * a + b
+  reaction: r0
 LoadEnzymeML:
-    path: Test.omex
+  path: Test.omex
 ParameterEstimation:
-    thinlayer: pysces
+  thinlayer: pysces
