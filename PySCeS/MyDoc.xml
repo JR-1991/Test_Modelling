@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version2/core" level="3" version="2">
+  <model id="MyDoc" name="MyDoc">
+    <listOfUnitDefinitions>
+      <unitDefinition metaid="METAID_U0" id="u0" name="ml">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition metaid="METAID_U1" id="u1" name="fmole / l">
+        <listOfUnits>
+          <unit kind="litre" exponent="-1" scale="1" multiplier="1"/>
+          <unit kind="mole" exponent="1" scale="-15" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition metaid="METAID_U2" id="u2" name="mmole / l">
+        <listOfUnits>
+          <unit kind="litre" exponent="-1" scale="1" multiplier="1"/>
+          <unit kind="mole" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition metaid="METAID_U3" id="u3" name="min">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="1" multiplier="60"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition metaid="METAID_U4" id="u4" name="dimensionless">
+        <listOfUnits>
+          <unit kind="dimensionless" exponent="1" scale="1" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="v0" name="Falcon Tube" spatialDimensions="3" size="10" units="u0" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species metaid="METAID_P0" sboTerm="SBO:0000252" id="p0" name="Alcohol dehydrogenase subunit alpha" compartment="v0" initialConcentration="10" substanceUnits="u1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <enzymeml:protein xmlns:enzymeml="http://sbml.org/enzymeml/version2">
+            <enzymeml:sequence>MSTAGKVIKCKAAVLWELKKPFSIEEVEVAPPKAHEVRIKMVAVGICGTDDHVVSGTMVTPLPVILGHEAAGIVESVGEGVTTVKPGDKVIPLAIPQCGKCRICKNPESNYCLKNDVSNPQGTLQDGTSRFTCRRKPIHHFLGISTFSQYTVVDENAVAKIDAASPLEKVCLIGCGFSTGYGSAVNVAKVTPGSTCAVFGLGGVGLSAIMGCKAAGAARIIAVDINKDKFAKAKELGATECINPQDYKKPIQEVLKEMTDGGVDFSFEVIGRLDTMMASLLCCHEACGTSVIVGVPPDSQNLSMNPMLLLTGRTWKGAILGGFKSKECVPKLVADFMAKKFSLDALITHVLPFEKINEGFDLLHSGKSIRTILMF</enzymeml:sequence>
+            <enzymeml:ECnumber>1.1.1.1</enzymeml:ECnumber>
+            <enzymeml:uniprotID>P07327</enzymeml:uniprotID>
+          </enzymeml:protein>
+        </annotation>
+      </species>
+      <species metaid="METAID_S0" sboTerm="SBO:0000247" id="s0" name="ethanol" compartment="v0" initialConcentration="200" substanceUnits="u2" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <enzymeml:reactant xmlns:enzymeml="http://sbml.org/enzymeml/version2">
+            <enzymeml:inchi>InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H3</enzymeml:inchi>
+            <enzymeml:smiles>CCO</enzymeml:smiles>
+            <enzymeml:chebiID>CHEBI:16236</enzymeml:chebiID>
+          </enzymeml:reactant>
+        </annotation>
+      </species>
+      <species metaid="METAID_S1" sboTerm="SBO:0000247" id="s1" name="acetaldehyde" compartment="v0" initialConcentration="0" substanceUnits="u2" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <enzymeml:reactant xmlns:enzymeml="http://sbml.org/enzymeml/version2">
+            <enzymeml:inchi>InChI=1S/C2H4O/c1-2-3/h2H,1H3</enzymeml:inchi>
+            <enzymeml:smiles>[H]C(C)=O</enzymeml:smiles>
+            <enzymeml:chebiID>CHEBI:15343</enzymeml:chebiID>
+          </enzymeml:reactant>
+        </annotation>
+      </species>
+    </listOfSpecies>
+    <listOfReactions>
+      <annotation>
+        <enzymeml:data xmlns:enzymeml="http://sbml.org/enzymeml/version2">
+          <enzymeml:formats>
+            <enzymeml:format id="format0">
+              <enzymeml:column type="time" unit="u3" index="0"/>
+              <enzymeml:column replica="repl_0_0" species="s1" type="conc" unit="u2" index="1" isCalculated="False"/>
+            </enzymeml:format>
+            <enzymeml:format id="format1">
+              <enzymeml:column type="time" unit="u3" index="0"/>
+              <enzymeml:column replica="repl_1_0" species="s1" type="conc" unit="u2" index="1" isCalculated="False"/>
+            </enzymeml:format>
+            <enzymeml:format id="format2">
+              <enzymeml:column type="time" unit="u3" index="0"/>
+              <enzymeml:column replica="repl_2_0" species="s1" type="conc" unit="u2" index="1" isCalculated="False"/>
+            </enzymeml:format>
+            <enzymeml:format id="format3">
+              <enzymeml:column type="time" unit="u3" index="0"/>
+              <enzymeml:column replica="repl_3_0" species="s1" type="conc" unit="u2" index="1" isCalculated="False"/>
+            </enzymeml:format>
+            <enzymeml:format id="format4">
+              <enzymeml:column type="time" unit="u3" index="0"/>
+              <enzymeml:column replica="repl_4_0" species="s1" type="conc" unit="u2" index="1" isCalculated="False"/>
+            </enzymeml:format>
+            <enzymeml:format id="format5">
+              <enzymeml:column type="time" unit="u3" index="0"/>
+              <enzymeml:column replica="repl_5_0" species="s1" type="conc" unit="u2" index="1" isCalculated="False"/>
+            </enzymeml:format>
+            <enzymeml:format id="format6">
+              <enzymeml:column type="time" unit="u3" index="0"/>
+              <enzymeml:column replica="repl_6_0" species="s1" type="conc" unit="u2" index="1" isCalculated="False"/>
+            </enzymeml:format>
+            <enzymeml:format id="format7">
+              <enzymeml:column type="time" unit="u3" index="0"/>
+              <enzymeml:column replica="repl_7_0" species="s1" type="conc" unit="u2" index="1" isCalculated="False"/>
+            </enzymeml:format>
+            <enzymeml:format id="format8">
+              <enzymeml:column type="time" unit="u3" index="0"/>
+              <enzymeml:column replica="repl_8_0" species="s1" type="conc" unit="u2" index="1" isCalculated="False"/>
+            </enzymeml:format>
+            <enzymeml:format id="format9">
+              <enzymeml:column type="time" unit="u3" index="0"/>
+              <enzymeml:column replica="repl_9_0" species="s1" type="conc" unit="u2" index="1" isCalculated="False"/>
+            </enzymeml:format>
+          </enzymeml:formats>
+          <enzymeml:listOfMeasurements>
+            <enzymeml:measurement file="file0" id="m0" name="Meas_0">
+              <enzymeml:initConc reactant="s1" value="12.0" unit="u2"/>
+              <enzymeml:initConc reactant="s0" value="1.0" unit="u2"/>
+            </enzymeml:measurement>
+            <enzymeml:measurement file="file1" id="m1" name="Meas_1">
+              <enzymeml:initConc reactant="s1" value="22.0" unit="u2"/>
+              <enzymeml:initConc reactant="s0" value="2.0" unit="u2"/>
+            </enzymeml:measurement>
+            <enzymeml:measurement file="file2" id="m2" name="Meas_2">
+              <enzymeml:initConc reactant="s1" value="32.0" unit="u2"/>
+              <enzymeml:initConc reactant="s0" value="3.0" unit="u2"/>
+            </enzymeml:measurement>
+            <enzymeml:measurement file="file3" id="m3" name="Meas_3">
+              <enzymeml:initConc reactant="s1" value="42.0" unit="u2"/>
+              <enzymeml:initConc reactant="s0" value="4.0" unit="u2"/>
+            </enzymeml:measurement>
+            <enzymeml:measurement file="file4" id="m4" name="Meas_4">
+              <enzymeml:initConc reactant="s1" value="52.0" unit="u2"/>
+              <enzymeml:initConc reactant="s0" value="5.0" unit="u2"/>
+            </enzymeml:measurement>
+            <enzymeml:measurement file="file5" id="m5" name="Meas_5">
+              <enzymeml:initConc reactant="s1" value="62.0" unit="u2"/>
+              <enzymeml:initConc reactant="s0" value="6.0" unit="u2"/>
+            </enzymeml:measurement>
+            <enzymeml:measurement file="file6" id="m6" name="Meas_6">
+              <enzymeml:initConc reactant="s1" value="72.0" unit="u2"/>
+              <enzymeml:initConc reactant="s0" value="7.0" unit="u2"/>
+            </enzymeml:measurement>
+            <enzymeml:measurement file="file7" id="m7" name="Meas_7">
+              <enzymeml:initConc reactant="s1" value="82.0" unit="u2"/>
+              <enzymeml:initConc reactant="s0" value="8.0" unit="u2"/>
+            </enzymeml:measurement>
+            <enzymeml:measurement file="file8" id="m8" name="Meas_8">
+              <enzymeml:initConc reactant="s1" value="92.0" unit="u2"/>
+              <enzymeml:initConc reactant="s0" value="9.0" unit="u2"/>
+            </enzymeml:measurement>
+            <enzymeml:measurement file="file9" id="m9" name="Meas_9">
+              <enzymeml:initConc reactant="s1" value="102.0" unit="u2"/>
+              <enzymeml:initConc reactant="s0" value="10.0" unit="u2"/>
+            </enzymeml:measurement>
+          </enzymeml:listOfMeasurements>
+          <enzymeml:files>
+            <enzymeml:file file="./data/m0.csv" format="format0" id="file0"/>
+            <enzymeml:file file="./data/m1.csv" format="format1" id="file1"/>
+            <enzymeml:file file="./data/m2.csv" format="format2" id="file2"/>
+            <enzymeml:file file="./data/m3.csv" format="format3" id="file3"/>
+            <enzymeml:file file="./data/m4.csv" format="format4" id="file4"/>
+            <enzymeml:file file="./data/m5.csv" format="format5" id="file5"/>
+            <enzymeml:file file="./data/m6.csv" format="format6" id="file6"/>
+            <enzymeml:file file="./data/m7.csv" format="format7" id="file7"/>
+            <enzymeml:file file="./data/m8.csv" format="format8" id="file8"/>
+            <enzymeml:file file="./data/m9.csv" format="format9" id="file9"/>
+          </enzymeml:files>
+        </enzymeml:data>
+      </annotation>
+      <reaction metaid="METAID_R0" sboTerm="SBO:0000176" id="r0" name="Alocohol dehydrogenation" reversible="false">
+        <listOfReactants>
+          <speciesReference sboTerm="SBO:0000015" species="s0" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference sboTerm="SBO:0000011" species="s1" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference sboTerm="SBO:0000013" species="p0"/>
+        </listOfModifiers>
+        <kineticLaw name="Model_r0">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> s0 </ci>
+              <ci> a </ci>
+            </apply>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="a" value="2" units="u4">
+              <annotation>
+                <enzymeml:parameter xmlns:enzymeml="http://sbml.org/enzymeml/version2">
+                  <enzymeml:initialValue>2.0</enzymeml:initialValue>
+                </enzymeml:parameter>
+              </annotation>
+            </localParameter>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>
