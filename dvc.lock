@@ -9,14 +9,14 @@ stages:
           path: Test.omex
     outs:
     - path: nodes/LoadEnzymeML/outs.json
-      md5: 1695ba69de346d32c1fe140983c61a44
+      md5: befaf11bfc78ef4154c69432f1b6a146
       size: 45080
   Alocohol dehydrogenation:
     cmd: "python3 -c \"from src.model import Model; Model.load(name='Alocohol dehydrogenation').run_and_save()\"\
       \ "
     deps:
     - path: nodes/LoadEnzymeML/outs.json
-      md5: 1695ba69de346d32c1fe140983c61a44
+      md5: befaf11bfc78ef4154c69432f1b6a146
       size: 45080
     params:
       params.yaml:
@@ -28,33 +28,24 @@ stages:
               unit: dimensionless
               upper: 3
               value: 2
-            b:
-              initial_value: 10
-              lower: 9
-              unit: mmole / l
-              upper: 11
-              value: 10
-          equation: ethanol * a + b
+          equation: ethanol * a
           reaction: r0
     outs:
     - path: nodes/Alocohol dehydrogenation/outs.json
-      md5: fb591d712758f040c74bee9ca739a248
-      size: 55113
+      md5: 3f39c37c70a84f8bd7bf67b09b0c5d6f
+      size: 54656
   ParameterEstimation:
     cmd: "python3 -c \"from src.estimation import ParameterEstimation; ParameterEstimation.load(name='ParameterEstimation').run_and_save()\"\
       \ "
     deps:
     - path: nodes/Alocohol dehydrogenation/outs.json
-      md5: fb591d712758f040c74bee9ca739a248
-      size: 55113
+      md5: 3f39c37c70a84f8bd7bf67b09b0c5d6f
+      size: 54656
     params:
       params.yaml:
         ParameterEstimation:
           thinlayer: pysces
     outs:
     - path: nodes/ParameterEstimation/metrics_no_cache.json
-      md5: 2741cdbbd7b829df49d4e67ff17e308a
-      size: 98
-    - path: nodes/ParameterEstimation/time_course.csv
-      md5: 419817191074551dd43bc13dcf94a4f7
-      size: 477
+      md5: 669640268b11b13d89c8f61ffce0e42c
+      size: 91
