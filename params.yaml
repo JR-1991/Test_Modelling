@@ -7,12 +7,24 @@ Alocohol dehydrogenation:
             upper: 3
             value: 2
         b:
-            initial_value: 10
-            lower: 9
+            initial_value: 2
+            lower: 0.1
             unit: mmole / l
             upper: 11
-            value: 10
-    equation: ethanol * a + b
+            value: 2
+        d:
+            initial_value: 2
+            lower: 0.1
+            unit: mmole / l
+            upper: 11
+            value: 2
+        e:
+            initial_value: 2
+            lower: 0.1
+            unit: mmole / l
+            upper: 11
+            value: 2
+    equation: ethanol * a + b + d + e 
     reaction: r0
 LoadEnzymeML:
     path: Test.omex
